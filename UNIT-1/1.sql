@@ -1,0 +1,16 @@
+-- Write a PL/SQL block that calculates the simple intrest based on the given principle amount , rate of intrest and number of years.
+
+SET SERVEROUTPUT ON;
+DECLARE
+ PRICE NUMBER(8):= 250000;
+ RATE  NUMBER(2):= 2;
+ NUMBER_OF_YEAR NUMBER(2):= 3;
+ SIMPLE_INTREST NUMBER;
+BEGIN
+ SIMPLE_INTREST := (PRICE*RATE*NUMBER_OF_YEAR)/100;
+ DBMS_OUTPUT.PUT_LINE('PRICE = ' || PRICE);
+ DBMS_OUTPUT.PUT_LINE('RATE = ' || RATE);
+ DBMS_OUTPUT.PUT_LINE('NUMBER OF YEAR = ' || NUMBER_OF_YEAR);
+ DBMS_OUTPUT.PUT_LINE('SIMPLE INTREST = ' || SIMPLE_INTREST);
+END;
+/
