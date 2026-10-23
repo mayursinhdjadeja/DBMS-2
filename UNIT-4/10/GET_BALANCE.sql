@@ -1,0 +1,18 @@
+-- Write a function that returns the balance for a given account number. 
+
+CREATE OR REPLACE FUNCTION GET_BALANCE
+(
+    P_ACCNO IN NUMBER
+)
+RETURN NUMBER
+IS
+    V_BALANCE NUMBER;
+BEGIN
+    SELECT BALANCE
+    INTO V_BALANCE
+    FROM ACCOUNT
+    WHERE ACNO = P_ACCNO;
+
+    RETURN V_BALANCE;
+END;
+/
