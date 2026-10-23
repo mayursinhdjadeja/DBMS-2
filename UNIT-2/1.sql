@@ -17,16 +17,14 @@ insert into customer values(075,'Harsh',25000,20);
 COMMIT;
 
 SET SERVEROUTPUT ON;
-DECLARE
-    total_rows number(2):=0;
 BEGIN
-    UPDATE customer SET sal =(sal*0.10)
-    WHERE deptno=10;
-    IF sql%notfound THEN
-        dbms_output.put_line('no customer selected');
-    ELSIF sql%found THEN
-        total_rows:=sql%rowcount;
-            dbms_output.put_line(total_rows || 'customer salary updated');
-    END IF;
+   	UPDATE EMP
+   	SET BasicSal = BasicSal * 1.10
+   	WHERE Deptno = 10;
+   	IF SQL%ROWCOUNT = 0 THEN
+      		DBMS_OUTPUT.PUT_LINE('No employees found in department 10.');
+   	ELSE
+      		DBMS_OUTPUT.PUT_LINE(SQL%ROWCOUNT || ' employee(s) salary raised by 10% in department 10.');
+   	END IF;
 END;
 /
